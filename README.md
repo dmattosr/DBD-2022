@@ -1,5 +1,13 @@
 # DBD-2022
 
+
+# Integrantes
+
+- Aguirre Cardenas Patrick Bryan
+- Mattos Rosales Daniel Alfredo
+- Espinoza Ccente Miguel Ange
+- Condori Mestas, Ledy Omar	
+
 Querys
 ======
 
