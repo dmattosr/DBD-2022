@@ -17,6 +17,12 @@ Querys
 
 ```sql
 
+-- SECUENCIAS
+CREATE SEQUENCE persona__id_persona
+INCREMENT 1
+START 1;
+
+
 CREATE TABLE pais
 (
   id_pais INT NOT NULL,
