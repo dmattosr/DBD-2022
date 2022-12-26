@@ -20,7 +20,7 @@ Querys
 -- SECUENCIAS
 CREATE SEQUENCE persona__id_persona
 INCREMENT 1
-START 1;
+START 1000;
 
 
 CREATE SEQUENCE cita__id_cita
