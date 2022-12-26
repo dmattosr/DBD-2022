@@ -23,6 +23,11 @@ INCREMENT 1
 START 1;
 
 
+CREATE SEQUENCE cita__id_cita
+INCREMENT 1
+START 1;
+
+
 CREATE TABLE pais
 (
   id_pais INT NOT NULL,
