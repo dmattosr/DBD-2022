@@ -1,0 +1,113 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ config.ASSETS_ROOT }}/css/bg_login.css">
+{% endblock stylesheets %}
+
+{% block title %} Registrar {% endblock %}
+
+{% block content %}
+    <div id="background-wrapper"></div>
+    <div class="auth-wrapper">
+        <div class="auth-content">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="feather icon-user-plus auth-icon"></i>
+                    </div>
+                    <h3 class="mb-4">Registro de pacientes</h3>
+
+                    <span class="mb-0 text-muted">
+                        {% if msg %}
+                            <span class="text-danger">{{ msg | safe }}</span>
+                        {% else %}
+                            Escriba datos personales
+                        {% endif %} 
+                    </span>
+
+                    <br />
+                    <br />
+
+                    <!-- Hide the form on success -->
+                    {% if success %}
+
+                        <a href="{{ url_for('authentication_blueprint.login') }}" class="btn btn-primary shadow-2 mb-4">Sign IN</a>
+
+                    {% else %}
+
+                        <form role="form" method="post" action="">
+
+                            {{ form.hidden_tag() }}                    
+
+                            <div class="input-group mb-4">
+                                {{ form.tipo_documento(placeholder="Tipo de documento", class="form-control", type="text") }}
+                            </div>
+                            <div class="input-group mb-4">
+                                {{ form.numero_documento(placeholder="Número de documento", class="form-control", type="text") }}
+                            </div>
+
+                            <div class="input-group mb-4">
+                                {{ form.apellido_paterno(placeholder="Apellido Paterno", class="input form-control", type="text") }}
+                            </div>
+                            <div class="input-group mb-4">
+                                {{ form.apellido_materno(placeholder="Apellido Materno", class="input form-control", type="text") }}
+                            </div>
+                            <div class="input-group mb-4">
+                                {{ form.nombres(placeholder="Nombres", class="input form-control", type="text") }}
+                            </div>
+
+                            <div class="input-group mb-4">
+                                {{ form.sexo(placeholder="Sexo", class="form-control", type="text") }}
+                            </div>
+                            <div class="input-group mb-4">
+                                {{ form.fecha_nacimiento(placeholder="Fecha de nacimiento", class="form-control", type="text") }}
+                            </div>
+                            <div class="input-group mb-4">
+                                {{ form.email(placeholder="Email", class="input form-control", type="email") }}
+                            </div>
+                            <div class="input-group mb-4">
+                                {{ form.celular(placeholder="Celular", class="input form-control", type="text") }}
+                            </div>
+                            <div class="input-group mb-4">
+                                {{ form.id_pais(placeholder="Nacionalidad", class="form-control", type="text") }}
+                            </div>
+                            <div class="input-group mb-4">
+                                {{ form.id_distrito(placeholder="Distrito", class="form-control", type="text") }}
+                            </div>
+                            <div class="input-group mb-4">
+                                {{ form.direccion(placeholder="Dirección", class="form-control", type="text") }}
+                            </div>
+                            <div class="input-group mb-4">
+                                {{ form.usuario(placeholder="Usuario", class="form-control") }}
+                            </div>
+                            <div class="input-group mb-4">
+                                {{ form.password(placeholder="Password", class="form-control", type="password") }}
+                            </div>
+
+                            <div class="form-group text-left">
+                                <div class="checkbox checkbox-fill d-inline">
+                                    <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
+                                    <label for="checkbox-fill-a1" class="cr"> Acepto los <a href="#">terminos</a></label>
+                                </div>
+                            </div>
+                            <button type="submit" name="register" class="btn btn-primary shadow-2 mb-4">Registrar</button>
+
+                        </form>
+                        
+                        <p class="mb-0 text-muted">¿Ya tiene una cuenta? <a href="{{ url_for('authentication_blueprint.login') }}">Login</a></p>
+                       
+
+                    {% endif %}
+                    
+                    <br />
+                    <p class="mb-2 text-muted">
+                        &copy; <a target="_blank" href="https://bit.ly/37fF9RT">CodedThemes</a> 
+                        - <a target="_blank" 
+                             href="https://appseed.us/product/datta-able/flask/">Flask Datta Able</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

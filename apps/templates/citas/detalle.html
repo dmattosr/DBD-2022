@@ -1,0 +1,120 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Detalle de cita de atención médica</h5>
+                                    </div>
+                                    <div class="card-block">
+                                        <div class="row">
+                                            <div class="col-sm-6 mb-4">
+                                                <div class="form-group">
+                                                    <label for="numero_documento">Tipo de documento</label>
+                                                    <input type="tipo_documento" class="form-control" id="numero_documento" aria-describedby="emailHelp" placeholder="Tipo de documento" value="{{ data['tipo_documento']}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 mb-4">
+                                                <div class="form-group">
+                                                    <label for="numero_documento">Documento de identidad</label>
+                                                    <input type="email" class="form-control" id="numero_documento" aria-describedby="emailHelp" placeholder="Enter email" value="{{ data['numero_documento']}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 mb-4">
+                                                <div class="form-group">
+                                                    <label for="fn">Apellido Paterno</label>
+                                                    <input type="email" class="form-control" id="fn" aria-describedby="emailHelp" placeholder="Enter email" value="{{ data['apellido_paterno']}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 mb-4">
+                                                <div class="form-group">
+                                                    <label for="fn">Apellido Materno</label>
+                                                    <input type="email" class="form-control" id="ln" aria-describedby="emailHelp" placeholder="Enter email" value="{{ data['apellido_materno']}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 mb-4">
+                                                <div class="form-group">
+                                                    <label for="fn">Nombres</label>
+                                                    <input type="email" class="form-control" id="ln" aria-describedby="emailHelp" placeholder="Enter email" value="{{ data['nombres']}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 mb-4">
+                                                <div class="form-group">
+                                                    <label for="add">Dirección</label>
+                                                    <input type="email" class="form-control" id="add" aria-describedby="emailHelp" placeholder="Enter email"  value="{{ '%s - %s' % (data['direccion'], data['distrito']) }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 mb-4">
+                                                <div class="form-group">
+                                                    <label for="abt">Email</label>
+                                                    <input type="email" class="form-control" id="ln" aria-describedby="emailHelp" placeholder="Enter email" value="{{ data['email']}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Datos de la cita</h5>
+                                    </div>
+                                    <div class="card-block">
+                                        <div class="row">
+                                            <div class="col-sm-6 mb-4">
+                                                <div class="form-group">
+                                                    <label for="numero_documento">Fecha</label>
+                                                    <input type="tipo_documento" class="form-control" id="numero_documento" aria-describedby="emailHelp" placeholder="Tipo de documento" value="{{ data['cita_fecha']}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 mb-4">
+                                            </div>
+                                            <div class="col-sm-6 mb-4">
+                                                <div class="form-group">
+                                                    <label for="numero_documento">Hora inicio</label>
+                                                    <input type="email" class="form-control" id="numero_documento" aria-describedby="emailHelp" placeholder="Enter email" value="{{ data['hora_inicio']}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 mb-4">
+                                                <div class="form-group">
+                                                    <label for="fn">Hora final</label>
+                                                    <input type="email" class="form-control" id="ln" aria-describedby="emailHelp" placeholder="Enter email" value="{{ data['hora_final']}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block javascripts %}
+{% endblock javascripts %}

@@ -1,0 +1,3 @@
+# local environment
+-r requirements_base.txt
+psycopg2-binary

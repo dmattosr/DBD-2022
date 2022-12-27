@@ -1,0 +1,9 @@
+deploy test:
+  stage: deploy
+  before_script:
+    - chmod 600 $ID_RSA
+  script:
+    - echo ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "gitlab-ci/flask_app.sh"
+    - ssh -i $ID_RSA -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "gitlab-ci/flask_app.sh"
+  only:
+    - test

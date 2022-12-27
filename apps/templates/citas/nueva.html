@@ -1,0 +1,267 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+    {% if ctx['opcion'] == ctx['constantes'].SELEC_FECHA %}
+
+    <script src='/static/assets/plugins/fullcalendar/dist/index.global.js'></script>
+
+    {% endif %}
+
+
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <section class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <div class="page-header">
+                        <div class="page-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <div class="page-header-title">
+                                        <h5 class="m-b-10">Solicitar nueva cita</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            {% if ctx['opcion'] == ctx['constantes'].SELEC_DISTRITO %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-block table-border-style">
+                                            <h1>Seleccione el distrito</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Establecimientos por distrito</h5>
+                                            <span class="d-block m-t-5">Seleccione un <code>distrito</code></span>
+                                        </div>
+                                        <div class="card-block table-border-style">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Código del Distrito</th>
+                                                            <th>Nombre del distrito</th>
+                                                            <th>Número de establecimientos</th>
+                                                            <th>Opción</th>
+                                                            <th>Opción</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for distrito_item in  ctx['data_list'] %}
+                                                            <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>{{ distrito_item['id_distrito'] }}</td>
+                                                                <td>{{ distrito_item['distrito_nombre'] }}</td>
+                                                                <td>{{ distrito_item['total'] }}</td>
+                                                                <td><a href="{{ url_for('citas_blueprint.citas_nuevacita', opcion=ctx['constantes'].SELEC_ESTABLECIMIENTO, id_distrito=distrito_item['id_distrito']) }}" class="btn btn-primary" role="button">Seleccionar</a></td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if ctx['opcion'] == ctx['constantes'].SELEC_ESTABLECIMIENTO %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-block table-border-style">
+                                            <h1>Seleccione del establecimiento</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Establecimientos de salud</h5>
+                                            <span class="d-block m-t-5">Seleccione un <code>establecimiento mas cercado</code></span>
+                                        </div>
+                                        <div class="card-block table-border-style">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Código del establecimiento</th>
+                                                            <th>Nombre del establecimiento</th>
+                                                            <th>Dirección</th>
+                                                            <th>Opción</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for item in  ctx['data_list'] %}
+                                                            <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>{{ item['id_estableciento'] }}</td>
+                                                                <td>{{ item['nombre'] }}</td>
+                                                                <td>{{ item['direccion'] }}</td>
+                                                                <td><a href="{{ url_for('citas_blueprint.citas_nuevacita', opcion=ctx['constantes'].SELEC_ESPECIALIDAD, id_estableciento=item['id_estableciento']) }}" class="btn btn-primary" role="button">Seleccionar</a></td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if ctx['opcion'] == ctx['constantes'].SELEC_ESPECIALIDAD %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-block table-border-style">
+                                            <h1>Seleccione de especialidad médica</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Especialidades médicas</h5>
+                                            <span class="d-block m-t-5">Seleccione una <code>especialidad</code></span>
+                                        </div>
+                                        <div class="card-block table-border-style">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Código de la especialidad</th>
+                                                            <th>Nombre de la especialidad</th>
+                                                            <th>Opción</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for item in  ctx['data_list'] %}
+                                                            <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>{{ item['id_especialidad'] }}</td>
+                                                                <td>{{ item['nombre'] }}</td>
+                                                                <td><a href="{{ url_for('citas_blueprint.citas_nuevacita', opcion=ctx['constantes'].SELEC_FECHA ) }}" class="btn btn-primary" role="button">Seleccionar</a></td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if ctx['opcion'] == ctx['constantes'].SELEC_FECHA %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-block table-border-style">
+                                            <h1>Seleccione fecha</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id='calendar'></div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      initialDate: '2022-12-26',
+      navLinks: true, // can click day/week names to navigate views
+      selectable: true,
+      selectMirror: true,
+      select: function(arg) {
+        var title = prompt('Event Title:');
+        if (title) {
+          calendar.addEvent({
+            title: title,
+            start: arg.start,
+            end: arg.end,
+            allDay: arg.allDay
+          })
+        }
+        calendar.unselect()
+      },
+      eventClick: function(arg) {
+        if (confirm('Are you sure you want to delete this event?')) {
+          arg.event.remove()
+        }
+      },
+      editable: false,
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: [
+        {% for item in  ctx['data_list'] %}
+            {
+              title: '{{ item['nombre'] }}',
+              start: '{{ item['hora_inicio'] }}',
+              end: '{{ item['hora_final'] }}',
+              url: '/citas/nueva/{{ item['fecha'] }}/{{ item['id_turno'] }}/{{ item['id_consultorio'] }}'
+            },
+        {% endfor %}
+      ]
+    });
+
+    calendar.render();
+  });
+
+</script>
+
+
+
+
+
+{% endblock javascripts %}

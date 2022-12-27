@@ -1,0 +1,31 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} 403 Page {% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ config.ASSETS_ROOT }}/css/bg_login.css">
+{% endblock stylesheets %}
+
+{% block content %}
+    <div id="background-wrapper"></div>
+    <div class="auth-wrapper">
+        <div class="auth-content">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="feather x-circle"></i>
+                    </div>
+                    <h3 class="mb-4">Error 403</h3>
+
+                    <br />
+
+                    <span class="mb-0 text-muted">
+                        Acceso denegado - <a href="/">Inicio</a>
+                    </span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

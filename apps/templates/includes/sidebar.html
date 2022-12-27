@@ -1,0 +1,25 @@
+<!-- [ navigation menu ] start -->
+<nav class="pcoded-navbar">
+    <div class="navbar-wrapper">
+        <div class="card-body">
+            <div class="text-center text-lg-center"><img src="/static/img/logo_minsa.png" alt="" height="50"></div>
+            <br>
+            <span class="b-title">{{ config.APP_FULLNAME }}</span>
+        </div>
+        <div class="navbar-content scroll-div">
+            <ul class="nav pcoded-inner-navbar">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Solicitud de citas</label>
+                </li>
+                <li data-username="" class="nav-item {% if 'informes' in segment %} active {% endif %}">
+                    <a href="{{ url_for('citas_blueprint.citas_nuevacita') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Nueva cita</span></a>
+                </li>
+                <li data-username="" class="nav-item {% if 'informes' in segment %} active {% endif %}">
+                    <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Mis cita</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- [ navigation menu ] end -->
